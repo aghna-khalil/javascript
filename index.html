@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JAVA SCRIPT QUESTION</title>
+    <style>
+      #operator {
+        height: 200px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        border: 1px solid rgb(243, 241, 238);
+        background-color: azure;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- rotate w3resource -->
+    <p id="rotation">w3resource</p>
+
+    <!-- MULTIPLY AND DIVIDE NUMBER -->
+    <div id="operator">
+      <label>IST NUMBER</label>
+      <input type="number" id="1num" />
+      <label>2nd NUMBER</label>
+      <input type="number" id="2num" />
+      <button onclick="multiply()" value="multiply">multiply</button>
+      <button onclick="divide()" value="divide">divide</button>
+
+      result:<span id="result"></span>
+    </div>
+    <!-- website url -->
+    <button
+      onclick="GetURL()"
+      style="
+        background-color: powderblue;
+        margin-top: 10px;
+        width: 180px;
+        height: 40px;
+      "
+    >
+      Get URL
+    </button>
+    <p id="url"></p>
+
+    <script>
+      // QUESTION 1 CURRENT DAY AND TIME
+      function currentDateTime() {
+        // Step 1: Current Day
+        let days = [
+          "sunday",
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+        ];
+        let date = new Date();
+        let day = days[date.getDay()];
+
+        // Current Day Result
+        console.log("Today is:" + " " + day);
+
+        // Step 1: Current Day
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let second = date.getSeconds();
+        let medium = hours >= 12 ? "PM" : "AM";
+        hours = hours >= 12 ? hours - 12 : hours;
+        // Current Time Result
+        console.log(
+          "Current Time is:" +
+            " " +
+            hours +
+            medium +
+            ":" +
+            minutes +
+            ":" +
+            second
+        );
+      }
+      currentDateTime();
+
+      // QUESTION 2 PRINT CURRENT WINDOW CONTENT
+      //   function currentWindowContent(){
+      //     window.print();
+      //   }
+      //   currentWindowContent();
+
+      // QUESTION 3 DATE FORMAT
+      function dateFormat() {
+        let date = new Date();
+        let dd = date.getDate();
+        let mm = date.getMonth() + 1;
+        let yyyy = date.getFullYear();
+        console.log(mm + ":" + dd + ":" + yyyy);
+        console.log(mm + "/" + dd + "/" + yyyy);
+        console.log(dd + ":" + mm + ":" + yyyy);
+        console.log(dd + "/" + mm + "/" + yyyy);
+      }
+      dateFormat();
+
+      //   QUESTION 4 AREA OF A TRIANGLE
+      function areaOfTriangle() {
+        let a = 5,
+          b = 6,
+          c = 7;
+        let s = (a + b + c) / 2;
+        // semi perameter
+        console.log("Semi perameter" + " :" + s);
+        let S = (s - a) * (s - b) * (s - c);
+        let Area = Math.sqrt(s * S);
+        console.log("Area Of Triangle" + " :" + Area);
+      }
+      areaOfTriangle();
+
+      // Question 5 ROTATE THE STRING
+      function rotate_string(id) {
+        let str = document.getElementById("rotation");
+        let textNode = str.childNodes[0];
+        text = textNode.data;
+        console.log(text);
+        // set time execution for rotation of string
+        setInterval(function () {
+          // remove the last child and move it right
+
+          text = text[text.length - 1] + text.substring(0, text.length - 1);
+          // rotate it
+          textNode.data = text;
+        }, 100);
+      }
+      rotate_string("demo");
+
+      // QUESTION 6 leap year
+      function checkLeapYear(year) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+          console.log("yes leap year");
+        } else {
+          console.log("no leap year");
+        }
+      }
+      const year = prompt("enter year");
+      checkLeapYear(year);
+
+      // QUESTION 7 SUNDAY BETWEEN 2014 and 2050
+      for (let year = 2014; year <= 2050; year++) {
+        let d = new Date(year, 0, 1);
+        if (d.getDay() == 0) {
+          console.log("IST JANUARY IS ON SUNDAY" + year);
+        }
+      }
+      // QUESTION 8 MATCH INTEGER
+      function match_num() {
+        let number = Math.round(Math.random() * 10);
+        // console.log(number);
+        let guess_number = prompt("guess number between 0 and 10");
+
+        if (guess_number == number) {
+          console.log("matched");
+          alert("GOOD WORK");
+        } else {
+          console.log("not matched" + guess_number);
+        }
+      }
+      match_num();
+
+      // QUESTION 9 DAYS BEFORE CHRISTMAS
+      function countChristmasDay() {
+        let today = new Date();
+        let christmas = new Date(today.getFullYear(), 11, 25);
+        if (today.getMonth() == 11 && today.getDate() > 25) {
+          christmas.setFullYear(christmas.getFullYear() + 1);
+        }
+        let dayInMillisecond = 86400000;
+        let diff = christmas - today;
+        let count_days = Math.ceil(diff / dayInMillisecond);
+
+        return count_days;
+      }
+      console.log(countChristmasDay() + " days left until Christmas!");
+
+      // QUESTION 10 CALCULATE MULTIPLICATION AND DIVISON
+      function multiply() {
+        let num1 = document.getElementById("1num").value;
+        let num2 = document.getElementById("2num").value;
+        document.getElementById("result").innerHTML = num1 * num2;
+      }
+      multiply();
+      function divide() {
+        let num1 = document.getElementById("1num").value;
+        let num2 = document.getElementById("2num").value;
+        document.getElementById("result").innerHTML = num1 / num2;
+      }
+      divide();
+      // QUESTION 11  CONVERT TEMPERATURE CELSIUS TO FAHRENHITE
+      function temperature() {
+        let f = 45;
+        let c = 60;
+
+        let Fahrenheit = (c * 9) / 5 + 32;
+        console.log("60°C" + "  " + Fahrenheit + "°F");
+
+        let celsius = ((f - 32) * 5) / 9;
+        console.log("45°F" + "  " + celsius + "°C");
+      }
+      temperature();
+      //  QUESTION 12 WEBSITE URL
+      function GetURL() {
+        var getCurrentUrl = document.URL;
+        document.getElementById("url").innerHTML = getCurrentUrl;
+      }
+      // QUESTION 13 USER DEFINE VARIABLE
+      function NAME() {
+        var user_name = "userdefinename";
+        var n = 23;
+        this[user_name] = n;
+        console.log(this[user_name]);
+      }
+      NAME();
+
+      //  QUESTION 14 FILE NAME EXTENSION
+      let filename = "file.png";
+      let file = filename.split(".").pop();
+      console.log(file);
+
+      //  QUESTION 15 difference of number and double the number
+       function difference(number){
+        if(number<=13){
+          console.log(13-number);
+        }
+         if(number>13){
+          console.log((number-13)*2);
+         }
+       }
+       difference(11);
+       difference(50);
+       //  QUESTION 16 sum of value if same then return triple value
+       function sumTriple(a,b){
+        if(a==b){
+          console.log( (a+b)*(3));
+          
+        }
+        else{
+          console.log(a+b);
+        }
+       }
+       sumTriple(13,13);
+       sumTriple(30,11);
+
+      //  Question 17 absolute difference 
+      function absoluteDiffer(x){
+        if(x>19){
+          console.log(Math.abs((x-19)*(3)));
+        }
+        else{
+          console.log(Math.abs(x-19));
+        }
+
+      }
+      absoluteDiffer(20);
+      absoluteDiffer(18);
+      // QUESTION 18  SAME SUM TRUE
+      function sameSum(a,b){
+
+        if((a+b==50) || (a == 50 || b == 50))
+        {
+          console.log("true" + " "+  (a+b));
+        }
+        else{
+          console.log("false" + " "+ (a+b));
+        }
+
+      }
+      sameSum(50,10);
+      sameSum(35,15);
+      sameSum(10,20);
+
+      // QUESTION 19  INTEGER WITHIN 20 OF 100 OR 400
+      function checkBetweenInteger(x){
+        if((Math.abs(100 - x) <= 20) || (Math. abs(400 - x) <= 20)){
+          console.log('YES integer WITHIN 20 of 100 or 400'+ " "+ x);
+        }
+        else{
+          console.log('NO integer WITHIN 20 of 100 or 400'+ " "+ x);
+        }
+
+
+      }
+      checkBetweenInteger(120);
+      checkBetweenInteger(420);
+      checkBetweenInteger(300);
+      checkBetweenInteger(360);
+      checkBetweenInteger(390);
+      checkBetweenInteger(90);
+       // QUESTION 20  INTEGER positive or negative
+       function checkPositiveNegative(x){
+        if (x<0){
+          console.log("number is negative"+ " "+ x);
+        }
+        else{
+          console.log("number is positive"+ " "+ x);
+        }
+       }
+       checkPositiveNegative(12);
+       checkPositiveNegative(-5);
+
+      //  first  20 questions done 
+
+
+       
+       
+
+       
+
+
+
+
+    </script>
+  </body>
+</html>
