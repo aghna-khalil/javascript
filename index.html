@@ -13,7 +13,7 @@
         gap: 5px;
         border: 1px solid rgb(243, 241, 238);
         background-color: azure;
-        }
+      }
     </style>
   </head>
   <body>
@@ -85,10 +85,10 @@
       currentDateTime();
 
       // QUESTION 2 PRINT CURRENT WINDOW CONTENT
-      //   function currentWindowContent(){
-      //     window.print();
-      //   }
-      //   currentWindowContent();
+      function currentWindowContent() {
+        window.print();
+      }
+      currentWindowContent();
 
       // QUESTION 3 DATE FORMAT
       function dateFormat() {
@@ -227,67 +227,56 @@
       console.log(file);
 
       //  QUESTION 15 difference of number and double the number
-       function difference(number){
-        if(number<=13){
-          console.log(13-number);
+      function difference(number) {
+        if (number <= 13) {
+          console.log(13 - number);
         }
-         if(number>13){
-          console.log((number-13)*2);
-         }
-       }
-       difference(11);
-       difference(50);
-       //  QUESTION 16 sum of value if same then return triple value
-       function sumTriple(a,b){
-        if(a==b){
-          console.log( (a+b)*(3));
-          
+        if (number > 13) {
+          console.log((number - 13) * 2);
         }
-        else{
-          console.log(a+b);
+      }
+      difference(11);
+      difference(50);
+      //  QUESTION 16 sum of value if same then return triple value
+      function sumTriple(a, b) {
+        if (a == b) {
+          console.log((a + b) * 3);
+        } else {
+          console.log(a + b);
         }
-       }
-       sumTriple(13,13);
-       sumTriple(30,11);
+      }
+      sumTriple(13, 13);
+      sumTriple(30, 11);
 
-      //  Question 17 absolute difference 
-      function absoluteDiffer(x){
-        if(x>19){
-          console.log(Math.abs((x-19)*(3)));
+      //  Question 17 absolute difference
+      function absoluteDiffer(x) {
+        if (x > 19) {
+          console.log(Math.abs((x - 19) * 3));
+        } else {
+          console.log(Math.abs(x - 19));
         }
-        else{
-          console.log(Math.abs(x-19));
-        }
-
       }
       absoluteDiffer(20);
       absoluteDiffer(18);
       // QUESTION 18  SAME SUM TRUE
-      function sameSum(a,b){
-
-        if((a+b==50) || (a == 50 || b == 50))
-        {
-          console.log("true" + " "+  (a+b));
+      function sameSum(a, b) {
+        if (a + b == 50 || a == 50 || b == 50) {
+          console.log("true" + " " + (a + b));
+        } else {
+          console.log("false" + " " + (a + b));
         }
-        else{
-          console.log("false" + " "+ (a+b));
-        }
-
       }
-      sameSum(50,10);
-      sameSum(35,15);
-      sameSum(10,20);
+      sameSum(50, 10);
+      sameSum(35, 15);
+      sameSum(10, 20);
 
       // QUESTION 19  INTEGER WITHIN 20 OF 100 OR 400
-      function checkBetweenInteger(x){
-        if((Math.abs(100 - x) <= 20) || (Math. abs(400 - x) <= 20)){
-          console.log('YES integer WITHIN 20 of 100 or 400'+ " "+ x);
+      function checkBetweenInteger(x) {
+        if (Math.abs(100 - x) <= 20 || Math.abs(400 - x) <= 20) {
+          console.log("YES integer WITHIN 20 of 100 or 400" + " " + x);
+        } else {
+          console.log("NO integer WITHIN 20 of 100 or 400" + " " + x);
         }
-        else{
-          console.log('NO integer WITHIN 20 of 100 or 400'+ " "+ x);
-        }
-
-
       }
       checkBetweenInteger(120);
       checkBetweenInteger(420);
@@ -295,29 +284,213 @@
       checkBetweenInteger(360);
       checkBetweenInteger(390);
       checkBetweenInteger(90);
-       // QUESTION 20  INTEGER positive or negative
-       function checkPositiveNegative(x){
-        if (x<0){
-          console.log("number is negative"+ " "+ x);
+      // QUESTION 20  INTEGER positive or negative
+      function checkPositiveNegative(x) {
+        if (x < 0) {
+          console.log("number is negative" + " " + x);
+        } else {
+          console.log("number is positive" + " " + x);
         }
-        else{
-          console.log("number is positive"+ " "+ x);
+      }
+      checkPositiveNegative(12);
+      checkPositiveNegative(-5);
+
+      //  first  20 questions done
+
+      // QUESTION 21  Check string
+      function addPyToFront(string) {
+        if (string.substring(0, 2) === "Py") {
+          console.log(string);
+        } else {
+          console.log("Py" + string);
         }
-       }
-       checkPositiveNegative(12);
-       checkPositiveNegative(-5);
+      }
+      addPyToFront("Pythagoras");
+      addPyToFront("thagoras");
 
-      //  first  20 questions done 
+      //  QUESTION 22  REMOVE CHARACTER
+      function removeCharacter(string, position) {
+        console.log(
+          string.slice(0, position) + string.slice(position + 1, string.length)
+        );
+      }
+      removeCharacter("Pythagoras ", 0);
 
+      //  Question 23 change first character with last character
+      function swap(string) {
+        let length = string.length;
+        console.log(
+          string.charAt(length - 1) +
+            string.substring(1, length - 1) +
+            string.charAt(0)
+        );
+      }
+      swap("Pythagoras");
+      swap("javascript");
+      //  QUESTION 24 ADD FIRST CHAR FRONT AND END
+      function addCharacter(string) {
+        console.log(string.charAt(0) + string + string.charAt(0));
+      }
+      addCharacter("Pythagoras");
+      addCharacter("javascript");
 
-       
-       
+      // QUESTION 25  replace (aghna=bhiob)
+      function replaceLetter(string) {
+        let str = string.split("");
+        for (let i = 0; i < str.length; i++)
+          if (str[i] === "z") {
+            str[i] = "a";
+          } else if (str[i] === "Z") {
+            str[i] = "A";
+          } else if (
+            (str[i] >= "a" && str[i] < "z") ||
+            (str[i] >= "A" && str[i] < "Z")
+          ) {
+            str[i] = String.fromCharCode(1 + str[i].charCodeAt(0));
+          }
+        console.log(str.join(""));
+      }
 
-       
+      replaceLetter("aghna");
 
+      // QUESTION 26 FIND MAX NUMBER 496726=> 96726
+      function findMaxNumber(num) {
+        const numStr = num.toString();
+        let maxNum = 0;
+        for (let i = 0; i < numStr.length; i++) {
+          const newNumStr = numStr.slice(0, i) + numStr.slice(i + 1);
+          const newNum = parseInt(newNumStr, 10);
+          if (newNum > maxNum) {
+            maxNum = newNum;
+          }
+        }
+        console.log(maxNum);
+      }
+      findMaxNumber(496726);
+      // QUESTION 27 single digit number
+      function singleDigit(num) {
+        let digit = 0;
+        while (num >= 10) {
+          let sum = 0;
+          while (num > 0) {
+            sum += num % 10;
+            num = Math.floor(num / 10);
+          }
+          num = sum;
+          digit++;
+        }
+        console.log(digit);
+      }
+      singleDigit(1225);
+      // QUestion 28 3d vector sum
+      function vectorProduct(v1, v2) {
+        let product = 0;
+        for (let i = 0; i < 3; i++) {
+          product += v1[i] * v2[i];
+        }
+        console.log(product);
+      }
+      vectorProduct([1, 2, 3], [1, 2, 3]);
 
+      // QUESTION 29 CHECK DIAGONAL MATRIX
+      function isDiagonalMatrix(matrix) {
+        for (let i = 0; i < matrix.length; i++) {
+          for (let j = 0; j < matrix[i].length; j++) {
+            if (i !== j && matrix[i][j] !== 0) {
+              console.log("false");
+            }
+          }
+        }
+        console.log("true");
+      }
 
+      isDiagonalMatrix([1, 0, 0], [0, 2, 0], [0, 0, 3]);
+      isDiagonalMatrix([1, 0, 0], [0, 2, 0], [0, 0, 3]);
+      // QUESTION 30  prefix sum
+      function prefixSum(arr) {
+        const pre_Sum = [];
+        let currentSum = 0;
 
+        for (let i = 0; i < arr.length; i++) {
+          currentSum += arr[i];
+          pre_Sum.push(currentSum);
+        }
+
+        console.log(pre_Sum);
+      }
+      prefixSum([1, 2, 3, 4]);
+
+      // QUESTION 31 REPLACE WITH $
+      function replaceNum(num) {
+        console.log(num.replace(/[0-9]/, "$"));
+      }
+      replaceNum("oran3ge");
+      // QUESTION 32 ROUND NUMBER WITH INDEX
+      function roundNumberIndex(array) {
+        let roundNumber = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] % 10 === 0) {
+            roundNumber = i;
+          }
+        }
+        console.log(roundNumber);
+      }
+      roundNumberIndex([11, 12, 30, 44]);
+      roundNumberIndex([9, 22, 20, 54]);
+      roundNumberIndex([8, 32, 40, 250]);
+
+      // QUESTION 33 sort array with length
+      function sortWithLength(array) {
+        for (let i = 0; i < array.length; i++) {
+          for (let j = i + 1; j < array.length; j++) {
+            if (array[i].length > array[j].length) {
+              let max_length = array[i];
+              array[i] = array[j];
+              array[j] = max_length;
+            }
+          }
+        }
+        console.log(array);
+      }
+
+      sortWithLength(["love", "my", "Father", "I"]);
+      // QUESTION 34 cube sum
+      function cube(num) {
+        let cube_sum = 0;
+
+        for (let i = 1; i <= num; i++) {
+          cube_sum += i * i * i;
+        }
+
+        console.log(cube_sum);
+      }
+      cube(6);
+      // QUESTION 35 MAX INTEGER N
+      function maxInteger(num) {
+        let sum = 0;
+        let n = 1;
+
+        while (sum + n <= num) {
+          sum += n++;
+        }
+
+        console.log(n - 1);
+      }
+
+      maxInteger(11);
+      // QUESTION 36 sum of string
+      function sumString(string) {
+        let sum = 0;
+
+        for (let char of string) {
+          if (/\d/.test(char)) {
+            sum += parseInt(char, 10);
+          }
+        }
+
+        console.log(sum);
+      }
+      sumString("aghna24");
     </script>
   </body>
 </html>
