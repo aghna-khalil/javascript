@@ -491,6 +491,169 @@
         console.log(sum);
       }
       sumString("aghna24");
+      // QUESTION 37 multiple of 3 and 7
+      function multiple37(number) {
+        if (number % 3 == 0) {
+          console.log("true");
+        }
+        if (number % 7 == 0) {
+          console.log("true");
+        } else {
+          console.log("false");
+        }
+      }
+      multiple37(12);
+      multiple37(14);
+      multiple37(11);
+
+      // QUESTION 38 string last 3 letter front and back
+      function addString(string) {
+        if (string.length < 3) {
+          console.log(string);
+        }
+        let threeLetter = string.substring(string.length - 3);
+        console.log(threeLetter + string + threeLetter);
+      }
+      addString("aghna");
+      // QUESTION 39 STRING START WITH JAVA
+      function javaString(string) {
+        if (string.length < 4) {
+          console.log("false");
+        }
+        str_java = string.substring(0, 4);
+        if (str_java == "java") {
+          console.log("true");
+        } else {
+          console.log("false");
+        }
+      }
+      javaString("javascript");
+      javaString("aghna");
+      // QUESTION 40 with in range 50..90
+      function rangeCheck(a, b, c) {
+        if (
+          (a >= 50 && a <= 90) ||
+          (b >= 50 && b <= 90) ||
+          (c >= 50 && c <= 90)
+        ) {
+          console.log("YES within range 50..90");
+        } else {
+          console.log("NO within range 50..90");
+        }
+      }
+      rangeCheck(51, 23, 91);
+      rangeCheck(11, 12, 18);
+      // QUESTION 41 check "script" is on 5th index(4)and then remove
+      function scriptString(string) {
+        if (string.indexOf("script") == 4) {
+          console.log(
+            string.substring(0, 4) + string.substring(10, string.length)
+          );
+        }
+      }
+      scriptString("javascript");
+      scriptString("typescript");
+      // QUESTION 42  CHECK LARGEST INTEGER
+      function largeInteger(a, b, c) {
+        console.log(Math.max(a, b, c));
+      }
+      largeInteger(51, 23, 91);
+      largeInteger(11, 12, 18);
+
+      // QUESTION 43 near to 100
+      function nearToHundred(a, b) {
+        let A = Math.abs(100 - a);
+        let B = Math.abs(100 - b);
+        if (A < B) {
+          console.log("close to hundred" + " " + a);
+        } else {
+          console.log("close to hundred" + " " + b);
+        }
+      }
+      nearToHundred(98, 89);
+
+      // QUESTION 44 numbers are in the range 40..60 or 70..100
+      function numRange(a, b) {
+        console.log(
+          " in range" + " " + (a >= 40 && a <= 60 && b >= 40 && b <= 60) ||
+            (a >= 70 && a <= 100 && b >= 70 && b <= 100)
+        );
+      }
+      numRange(41, 50);
+      numRange(39, 69);
+      // QUESTION 45 finad max number in range
+      function checkMaxRange(a, b) {
+        if ((a >= 50 && a <= 90) || (b >= 50 && b <= 90)) {
+          console.log(
+            "YES within range 40..60 and largest number is" +
+              " " +
+              Math.max(a, b)
+          );
+        }
+      }
+      checkMaxRange(41, 59);
+      checkMaxRange(11, 12);
+      // QUESTION 46 CHARACTER BETWEEN 2 AND 4 INDEX
+      function charBetweenIndex(string, char) {
+        if (string.length >= 4) {
+          let substring = string.substring(1, 4);
+          if (substring.includes(char)) {
+            console.log("true character between 2 and 4 index");
+          }
+        }
+        console.log("false character between 2 and 4 index");
+      }
+      charBetweenIndex("hamza", "x");
+      charBetweenIndex("aghna", "g");
+      // QUESTION 47 right most digit check
+      function rightMostDigit(a, b, c) {
+        if (a > 0 && b > 0 && c > 0) {
+          console.log(a % 10 == b % 10 && b % 10 == c % 10 && a % 10 == c % 10);
+        } else {
+          console.log("false");
+        }
+      }
+      rightMostDigit(20, 30, 400);
+      rightMostDigit(29, 32, 403);
+      // QUESTION 48 ERROR HANDLING
+      function checkInteger(a) {
+        if (!Number.isInteger(a)) {
+          throw new Error("IsnotInteger");
+        }
+        {
+          console.log("number is an integer" + a);
+        }
+      }
+
+      try {
+        checkInteger(18);
+        checkInteger(1.2);
+      } catch (error) {
+        console.log("error not integer");
+      }
+      // QUESTION 49
+      function handleUndefinedProperty() {
+        try {
+          console.log(aghna);
+        } catch (error) {
+          console.log("aghna is undefine");
+        }
+      }
+      handleUndefinedProperty();
+      // QUESTION 50
+      function division(a, b) {
+        if (b == 0) {
+          throw ("impossible division");
+        }
+        console.log(a/b);
+      }
+      try {
+        division(6,2);
+     division(6,0);
+      } catch (error) {
+        console.log("error", error);
+      }
+     
     </script>
   </body>
 </html>
